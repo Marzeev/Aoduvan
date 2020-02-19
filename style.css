@@ -1,0 +1,1005 @@
+/*-----------------------------------------------------------------------------------
+	    AODUVAN
+        Built with Blocs
+-----------------------------------------------------------------------------------*/
+ 
+body{
+	margin:0;
+	padding:0;
+    background:#FFFFFF;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.page-container{overflow-x:hidden;} /* Prevents unwanted scroll space when scroll FX used. */
+a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
+a:hover{text-decoration: none; cursor:pointer;}
+
+
+/* Preloader */
+
+.page-preloader{position: fixed;top: 0;bottom: 0;width: 100%;z-index:100000;background:#FFFFFF url("img/pageload-spinner.gif") no-repeat center center;}
+
+/* = Web Fonts
+-------------------------------------------------------------- */
+
+@font-face {
+	font-family:'GaramondNarrowC';
+	src: url('./fonts/GaramondNarrowC/GaramondNarrowC.woff');
+	src: url('./fonts/GaramondNarrowC/GaramondNarrowC.woff') format('woff'),
+	url('./fonts/GaramondNarrowC/GaramondNarrowC.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/GaramondNarrowC/GaramondNarrowC.svg#GaramondNarrowC') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'GaramondNarrowC-Bold';
+	src: url('./fonts/GaramondNarrowC-Bold/GaramondNarrowC-Bold.woff');
+	src: url('./fonts/GaramondNarrowC-Bold/GaramondNarrowC-Bold.woff') format('woff'),
+	url('./fonts/GaramondNarrowC-Bold/GaramondNarrowC-Bold.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/GaramondNarrowC-Bold/GaramondNarrowC-Bold.ttf') format('truetype'),
+	url('./fonts/GaramondNarrowC-Bold/GaramondNarrowC-Bold.svg#GaramondNarrowC-Bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* = Blocs
+-------------------------------------------------------------- */
+
+.bloc{
+	width:100%;
+	clear:both;
+	background: 50% 50% no-repeat;
+	padding:0 50px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position:relative;
+	display:flex;
+}
+.bloc .container{
+	padding-left:0;
+	padding-right:0;
+}
+
+
+/* Sizes */
+
+.bloc-lg{
+	padding:100px 50px;
+}
+.bloc-md{
+	padding:50px;
+}
+.bloc-sm{
+	padding:20px 50px;
+}
+
+/* = Full Screen Blocs 
+-------------------------------------------------------------- */
+
+.bloc-fill-screen{
+	min-height:100vh;
+	display: flex;
+	flex-direction: column;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.bloc-fill-screen > .container{
+	align-self: flex-middle;
+	flex-grow: 1;
+	display: flex;
+}
+.bloc-fill-screen > .container > .row{
+	flex-grow: 1;
+	align-self: center;
+	width:100%;
+}
+.bloc-fill-screen .fill-bloc-top-edge, .bloc-fill-screen .fill-bloc-bottom-edge{
+	flex-grow: 0;
+}
+.bloc-fill-screen .fill-bloc-top-edge{
+	align-self: flex-start;
+}
+.bloc-fill-screen .fill-bloc-bottom-edge{
+	align-self: flex-end;
+}
+
+/* = Full Width Blocs 
+-------------------------------------------------------------- */
+
+.full-width-bloc{
+	padding-left:0;
+	padding-right:0;
+}
+.full-width-bloc .row{
+	margin-left:0;
+	margin-right:0;
+}
+.full-width-bloc .container{
+	width:100%;
+	max-width:100%!important;
+}
+.full-width-bloc .carousel img{
+	width:100%;
+	height:auto;
+}
+
+
+/* Background Styles */
+
+.bg-center,.bg-l-edge,.bg-r-edge,.bg-t-edge,.bg-b-edge,.bg-tl-edge,.bg-bl-edge,.bg-tr-edge,.bg-br-edge,.bg-repeat{
+	-webkit-background-size: auto!important;
+	-moz-background-size: auto!important;
+	-o-background-size: auto!important;
+	background-size: auto!important;
+}
+.bg-center{
+	-webkit-background-size: auto;
+}
+
+
+/* Background Textures */
+
+.bloc-bg-texture::before{
+	content:"";
+	background-size: 2px 2px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left:0;
+	right:0;
+}
+.texture-darken::before{
+	background: rgba(0,0,0,0.5);
+}
+
+
+/* Background Effects */
+
+.b-parallax{
+	background-attachment:fixed;
+}
+
+/* Disable Parallax on Mobile Touch Devices */
+@media (hover: none) {
+	.b-parallax{
+	background-attachment:scroll;
+}
+}
+
+/* Light theme */
+
+.d-bloc .card,.l-bloc{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover,.l-bloc button:hover{
+	color:rgba(0,0,0,.7);
+}
+.l-bloc .icon-round,.l-bloc .icon-square,.l-bloc .icon-rounded,.l-bloc .icon-semi-rounded-a,.l-bloc .icon-semi-rounded-b{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span,.l-bloc .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn,.l-bloc .a-btn,.l-bloc .navbar a,.l-bloc a .icon-sm, .l-bloc a .icon-md, .l-bloc a .icon-lg, .l-bloc a .icon-xl, .l-bloc h1 a, .l-bloc h2 a, .l-bloc h3 a, .l-bloc h4 a, .l-bloc h5 a, .l-bloc h6 a, .l-bloc p a{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover,.l-bloc .a-btn:hover,.l-bloc .navbar a:hover, .l-bloc a:hover .icon-sm, .l-bloc a:hover .icon-md, .l-bloc a:hover .icon-lg, .l-bloc a:hover .icon-xl, .l-bloc h1 a:hover, .l-bloc h2 a:hover, .l-bloc h3 a:hover, .l-bloc h4 a:hover, .l-bloc h5 a:hover, .l-bloc h6 a:hover, .l-bloc p a:hover{
+	color:rgba(0,0,0,1);
+}
+.l-bloc .navbar-toggle .icon-bar{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .btn-wire,.d-bloc .card .btn-wire:hover,.l-bloc .btn-wire,.l-bloc .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
+}
+/* Dividers */
+
+.b-divider{
+	border-top:1px solid rgba(0,0,0,.1);
+	border-bottom:1px solid rgba(0,0,0,.1);
+}
+
+
+/* = NavBar
+-------------------------------------------------------------- */
+
+.hero .hero-nav{
+	padding-left:inherit;
+	padding-right:inherit;
+}
+/* Handle Multi Level Navigation */.navbar-light .navbar-nav .nav-link {
+	color: rgb(64, 64, 64);
+}
+.btco-menu li > a {
+	padding: 10px 15px;
+	color: #000;
+}
+.btco-menu .active a:focus,.btco-menu li a:focus ,.navbar > .show > a:focus{
+	background: transparent;
+	outline: 0;
+}
+.dropdown-menu .show > .dropdown-toggle::after{
+	transform: rotate(-90deg);
+}
+
+/* = Bric adjustment margins
+-------------------------------------------------------------- */
+
+.mg-clear{
+	margin:0;
+}
+.mg-sm{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.mg-md{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+img.mg-sm,img.mg-md,img.mg-lg{
+	margin-top: 0;
+}
+img.mg-sm{
+	margin-bottom:10px;
+}
+img.mg-md{
+	margin-bottom:30px;
+}
+img.mg-lg{
+	margin-bottom:50px;
+}
+
+/* = Buttons
+-------------------------------------------------------------- */
+
+.btn-d,.btn-d:hover,.btn-d:focus{
+	color:#FFF;
+	background:rgba(0,0,0,.3);
+}
+
+/* Prevent ugly blue glow on chrome and safari */
+button{
+	outline: none!important;
+}
+
+.btn-style-none,.btn-style-none:hover,.btn-style-none:active,.btn-style-none:focus{
+	background:none;
+	box-shadow: none;
+	padding:0;
+}
+
+
+
+
+
+/* = Cards
+-------------------------------------------------------------- */
+.card-sq, .card-sq .card-header, .card-sq .card-footer{
+	border-radius:0;
+}
+.card-rd{
+	border-radius:30px;
+}
+.card-rd .card-header{
+	border-radius:29px 29px 0 0;
+}
+.card-rd .card-footer{
+	border-radius:0 0 29px 29px;
+}
+
+/* = Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	padding:20px 0;
+	width:100%;
+	display:inline-block;
+}
+.divider-h span{
+	display: block;
+	border-top:1px solid transparent;
+}
+.divider-half{
+	width: 50%;
+	margin: 0 auto;
+}
+.dropdown-menu .divider-h,.dropdown-menu .divider-half{
+	padding:0;
+}
+
+/* = Forms
+-------------------------------------------------------------- */
+
+.form-control{
+	border-color:rgba(0,0,0,.1);
+	box-shadow:none;
+}
+
+
+
+/* ScrollToTop button */
+
+.scrollToTop{
+	width:40px;
+	height:40px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	opacity: 0;
+	z-index: 500;
+	transition: all .3s ease-in-out;
+}
+.scrollToTop span{
+	margin-top: 6px;
+}
+.showScrollTop{
+	font-size: 14px;
+	opacity: 1;
+}
+/* = Lightbox
+-------------------------------------------------------------- */
+
+a[data-lightbox]{
+	position: relative;
+	display: block;
+	text-align: center;
+}
+a[data-lightbox]:hover::before{
+	content:"+";
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+	font-size:32px;
+	line-height: 42px;
+	width:50px;
+	height:50px;
+	margin-left:-25px;
+	border-radius: 50%;
+	background:rgba(0,0,0,.6);
+	color:#FFF;
+	font-weight:100;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+a[data-lightbox]:hover img{
+	opacity: 0.6;
+	-webkit-animation-fill-mode: none;
+	animation-fill-mode:none;
+}
+.lightbox-caption{
+	padding: 20px;
+	color: #FFF;
+	background: rgba(0,0,0,.5);
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	bottom: 5px;
+}
+.close-lightbox{
+	color:#FFF;
+	font-size: 30px;
+	position: absolute;
+	top:20px;
+	right:20px;
+	z-index: 20;
+	background:rgba(0,0,0,.5);
+	border:none;
+	line-height: 30px;
+	padding:0 9px 5px;
+	opacity: 0.3;
+	border-radius:.25rem;
+}
+.close-lightbox:hover,.next-lightbox:hover, .prev-lightbox:hover{
+	opacity: 1.0;
+	color:#FFF;
+}
+.next-lightbox, .prev-lightbox{
+	font-size:20px;
+	color:rgba(255,255,255,.9);
+	background:rgba(0,0,0,.5);
+	transition: all .2s ease-in-out;
+	position: absolute;
+	top:45%;
+	z-index:1;
+	opacity: 0.4;
+	border-radius:.25rem;
+}
+.next-lightbox{
+	padding:6px 8px 1px 13px;
+	right:25px;
+}
+.prev-lightbox{
+	padding:6px 13px 1px 10px;
+	left:25px;
+}
+
+/* = Custom Styling
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6,p,label,.btn,a{
+	font-family:"GaramondNarrowC";
+}
+.container{
+	max-width:1140px;
+}
+.garamond{
+	font-family:"GaramondNarrowC";
+}
+.img-bloc-2-style{
+	height:600px;
+}
+.img-5-style{
+	;
+}
+p{
+	font-family:"GaramondNarrowC";
+	font-size:20px;
+}
+h3{
+	font-family:"GaramondNarrowC";
+	font-size:44px;
+	color:#7B1023!important;
+}
+h2{
+	font-family:"GaramondNarrowC";
+	color:#FADFC0!important;
+	font-size:80px;
+}
+h1{
+	font-family:"GaramondNarrowC";
+	color:#FADFC0!important;
+	font-size:38px;
+}
+a{
+	font-family:"GaramondNarrowC";
+}
+label{
+	font-family:"GaramondNarrowC";
+}
+.navbar-nav li a{
+	font-family:"GaramondNarrowC";
+}
+.checkbox-style{
+	height:46px;
+	font-size:16px;
+}
+h6{
+	font-size:24px;
+}
+.link-style{
+	text-decoration:underline;
+}
+.p-bloc-11-margin-top{
+	margin-top:23px;
+}
+.row-style{
+	width:100%;
+	margin-right:0px;
+	margin-left:0px;
+}
+.label-style{
+	width:100%;
+	margin-bottom:-2px;
+	margin-top:1px;
+	font-size:18px;
+}
+.bottom{
+	border-style:solid;
+	border-color:#FADFC0!important;
+	color:#FEFFFF!important;
+	border-width:1px 1px 1px 1px;
+}
+.label-wine-photos-style{
+	width:100%;
+}
+.link{
+	font-family:"GaramondNarrowC";
+	color:#A5825B!important;
+	font-size:18px;
+}
+.link:hover{
+	color:#7B1023!important;
+}
+.btn-margin-top{
+	margin-top:32px;
+	margin-bottom:-52px;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+.p-5-style{
+	font-size:16px;
+}
+.img-kitchen-photo-margin-bottom{
+	margin-bottom:100px;
+}
+.btn-margin-bottom{
+	margin-bottom:48px;
+	margin-top:30px;
+	border-style:solid;
+	color:#FEFFFF!important;
+	border-width:1px 1px 1px 1px;
+}
+.h3-aoduvan-margin-bottom{
+	margin-bottom:60px;
+}
+.img-wine-photos-margin-bottom{
+	margin-bottom:24px;
+}
+.p-margin-top{
+	margin-top:1px;
+	width:100%;
+}
+.h3-style{
+	width:100%;
+}
+.btn-бронировать-margin-top{
+	margin-top:24px;
+}
+.label-9-style{
+	width:100%;
+}
+.lang{
+	border-style:solid;
+	border-color:#A5825B!important;
+	border-width:1px 1px 1px 1px;
+}
+.lang:hover{
+}
+.btn-margin-bottom:hover{
+	border-style:solid;
+	border-width:1px 1px 1px 1px;
+}
+.btn-submit-margin-top{
+	margin-top:32px;
+}
+.p-bloc-27-style{
+	font-family:"GaramondNarrowC-Bold";
+	margin-top:-58px;
+}
+.p-9-style{
+	font-family:"GaramondNarrowC-Bold";
+	margin-top:50px;
+}
+.p-bloc-9-style{
+	font-family:"GaramondNarrowC-Bold";
+}
+.p-3-style{
+	font-family:"GaramondNarrowC-Bold";
+	margin-top:-61px;
+	margin-bottom:35px;
+}
+.img-bloc-18-style{
+	width:400px;
+}
+.img-style{
+	width:400px;
+	height:158px;
+}
+.h1-margin-top{
+	margin-top:30px;
+}
+.h1-bloc-18-margin-top{
+	margin-top:30px;
+}
+.container-div-style{
+	height:20px;
+}
+.p-footer-style{
+	font-size:12px;
+}
+
+/* = Colour
+-------------------------------------------------------------- */
+
+/* Background colour styles */
+
+.bgc-bisque{
+	background-color:rgba(250,224,192,0.5);
+}
+
+/* Text colour styles */
+
+.tc-bulgarian-rose{
+	color:#3F0008!important;
+}
+.tc-light-taupe{
+	color:#B6946D!important;
+}
+
+/* Button colour styles */
+
+.btn-light-taupe{
+	background:#B6946D;
+	color:#FFFFFF!important;
+}
+.btn-light-taupe:hover{
+	background:#927657!important;
+	color:#FFFFFF!important;
+}
+
+/* Bloc image backgrounds */
+
+.bg-oduvan-rest-13-20FW{
+	background-image:url("img/oduvan-rest-13%20FW.jpg");
+}
+.bg-art-nuvo-fon{
+	background-image:url("img/art-nuvo-fon.svg");
+}
+
+/* = Custom Bric Data
+-------------------------------------------------------------- */
+
+/* = Animated Scroll Symbol-------------------------------------------------------------- */.mouse-symbol,.device-symbol {
+	  width:29px;
+	  height:50px;
+	  border:2px solid rgba(0,0,0,.5);
+	  border-radius:30px;
+	  margin:0 auto;
+	  position: relative;
+}
+.device-symbol {
+	border-radius:6px;
+}
+.device-symbol:before{
+	  content: "";
+	  display: block;
+	  position: absolute;
+	  background-color: rgba(0,0,0,.23);
+	  height: 42px;
+	  width: 21px;
+	  border-radius: 2px;
+	  margin: 2px 0 0 2px;
+}
+.mouse-symbol:after,.device-symbol:after {
+	  content:"";
+	  display: block;
+	  position:absolute;
+	  top:10px;
+	  width:3px;
+	  height:3px;
+	  margin-left: 11px;
+	  background-color:#000000;
+	  border-radius:100%;
+}
+.device-symbol:after {
+	top:12px;
+}
+.mouse-symbol-light.mouse-symbol,.mouse-symbol-light.device-symbol{
+	border:2px solid rgba(255,255,255,.5);
+}
+.mouse-symbol-light.mouse-symbol:after,.mouse-symbol-light.device-symbol:after{
+	background-color:#FFFFFF;
+}
+.mouse-symbol-light.device-symbol:before{
+	background-color: rgba(255,255,255,.23);
+}
+.slow-touch-scroll:after {
+	animation: mouse-scroll-slow 2s cubic-bezier(0.68, -0.65, 0.265, 1.35) infinite}.fast-touch-scroll:after {
+	animation: mouse-scroll-fast 2s cubic-bezier(0.68, -0.65, 0.265, 1.35) infinite}.fast-invert-touch-scroll:after {
+	animation: mouse-scroll-fast-invert 2s cubic-bezier(0.68, -0.65, 0.265, 1.35) infinite}@keyframes mouse-scroll-slow {
+	  0%{
+	    -webkit-transform: translateY(0px) scaleY(1);
+	    transform: translateY(0px) scaleY(1);
+	  }  20% {
+	    -webkit-transform: translateY(0px) scaleX(1.2);
+	    transform: translateY(0px) scaleX(1.2);
+	    opacity: 1;
+	  }  100% {
+	    -webkit-transform: translateY(25px) scaleY(3) scaleX(0.8);
+	    transform: translateY(25px) scaleY(3) scaleX(0.8);
+	    opacity: .1;
+	  }}@keyframes mouse-scroll-fast {
+	  0%,20% {
+	    -webkit-transform: translateY(0px);
+	    transform: translateY(0px);
+	    opacity: 1;
+	  }  50% {
+	    -webkit-transform: translateY(20px);
+	    transform: translateY(20px);
+	    opacity: 1;
+	  }  80%,100% {
+	    -webkit-transform: translateY(20px);
+	    transform: translateY(20px);
+	    opacity: .1;
+	  }}@keyframes mouse-scroll-fast-invert {
+	  0%,20% {
+	    -webkit-transform: translateY(15px);
+	    transform: translateY(15px);
+	    opacity: 1;
+	  }  50% {
+	    -webkit-transform: translateY(0px);
+	    transform: translateY(0px);
+	    opacity: 1;
+	  }  80%,100% {
+	    -webkit-transform: translateY(0px);
+	    transform: translateY(0px);
+	    opacity: .1;
+	  }}.img-text-overlay-container{
+	position:relative;
+}
+.text-label-overlay{
+	position:absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width:100%;
+	 text-align:center;
+	font-size:40px;
+}
+.text-overlay-light-text{
+	color:rgba(255,255,255,.5);
+}
+
+
+/* = Mobile adjustments 
+-------------------------------------------------------------- */
+@media (max-width: 1024px)
+{
+    .bloc{
+        padding-left: 20px; 
+        padding-right: 20px;  
+    }
+    .bloc.full-width-bloc, .bloc-tile-2.full-width-bloc .container, .bloc-tile-3.full-width-bloc .container, .bloc-tile-4.full-width-bloc .container{
+        padding-left: 0; 
+        padding-right: 0;  
+    }
+}
+@media (max-width: 991px)
+{
+    .container{width:100%;}
+    .page-container, #hero-bloc{overflow-x: hidden;position: relative;} /* Prevent unwanted side scroll on mobile */
+    .bloc{padding-left: constant(safe-area-inset-left);padding-right: constant(safe-area-inset-right);} /* iPhone X Notch Support*/
+    .bloc-group, .bloc-group .bloc{display:block;width:100%;}
+}
+@media (max-width: 767px)
+{
+    .page-container{
+        overflow-x: hidden;
+        position:relative;
+    }
+    .bloc-tile-2 .container, .bloc-tile-3 .container, .bloc-tile-4 .container{
+        padding-left:0;padding-right:0;
+    }
+    .a-block{
+        padding:0 10px;
+    }
+    .btn-dwn{
+       display:none; 
+    }
+    .voffset{
+        margin-top:5px;
+    }
+    .voffset-md{
+        margin-top:20px;
+    }
+    .voffset-lg{
+        margin-top:30px;
+    }
+    form{
+        padding:5px;
+    }
+    .close-lightbox{
+        display:inline-block;
+    }
+    .blocsapp-device-iphone5{
+	   background-size: 216px 425px;
+	   padding-top:60px;
+	   width:216px;
+	   height:425px;
+    }
+    .blocsapp-device-iphone5 img{
+	   width: 180px;
+	   height: 320px;
+    }
+}
+
+@media (max-width: 991px){
+	h1{
+		font-size:24px;
+	}
+	.p-bloc-15-style{
+		font-size:18px;
+	}
+	.btn-margin-bottom{
+		width:100%;
+	}
+	.p-margin-top{
+		margin-top:1px;
+	}
+	.label-style{
+		margin-top:28px;
+	}
+	.bloc-bloc-29-margin-top{
+		margin-top:48px;
+	}
+	.p-bloc-29-style{
+		font-family:"GaramondNarrowC-Bold";
+	}
+	.p-13-style{
+		font-family:"GaramondNarrowC-Bold";
+		margin-top:30px;
+	}
+	.p-bloc-11-style{
+		font-family:"GaramondNarrowC-Bold";
+	}
+	.p-6-style{
+		font-family:"GaramondNarrowC-Bold";
+		margin-top:30px;
+	}
+	.bloc-bloc-11-margin-top{
+		margin-top:34px;
+		margin-bottom:50px;
+	}
+	
+}
+
+@media (max-width: 767px){
+	h1{
+		font-size:24px;
+	}
+	.label-style{
+		margin-top:29px;
+		margin-bottom:-1px;
+	}
+	p{
+		font-size:18px;
+	}
+	.checkbox-style{
+		font-size:14px;
+	}
+	.btn-margin-bottom{
+		width:100%;
+	}
+	.p-margin-top{
+		margin-top:2px;
+	}
+	.bloc-bloc-29-margin-top{
+		margin-top:51px;
+		margin-bottom:50px;
+	}
+	.container-div-margin-top{
+		margin-top:50px;
+		margin-bottom:10px;
+	}
+	.bloc-bloc-11-margin-top{
+		margin-bottom:50px;
+	}
+	.h2-margin-bottom{
+		font-size:60px;
+	}
+	.h2-margin-top{
+		font-size:60px;
+	}
+	.img-style{
+		width:300px;
+	}
+	.img-bloc-18-style{
+		width:300px;
+	}
+	.h2-контакты-margin-top{
+		font-size:60px;
+	}
+	
+}
+
+@media (max-width: 575px){
+	h2{
+		font-size:30px;
+	}
+	h1{
+		font-size:24px;
+	}
+	p{
+		font-size:16px;
+	}
+	h3{
+		font-size:24px;
+	}
+	.h3-margin-bottom{
+		margin-bottom:-46px;
+		margin-top:-51px;
+	}
+	.p-aoduvan-margin-top{
+		margin-top:-90px;
+		margin-bottom:20px;
+	}
+	.img-margin-bottom{
+		margin-bottom:0px;
+	}
+	.h2-margin-top{
+		margin-top:2px;
+		margin-bottom:-1px;
+		font-size:30px;
+	}
+	.bloc-margin-top{
+		margin-top:-70px;
+	}
+	.h3--винная-карта-margin-bottom{
+		margin-bottom:-31px;
+		margin-top:43px;
+	}
+	.label-style{
+		font-size:14px;
+		line-height:18px;
+	}
+	.p-5-style{
+		font-size:14px;
+	}
+	.p-style{
+		font-size:14px;
+	}
+	.link{
+	}
+	.p-bloc-15-style{
+		font-size:14px;
+	}
+	.h3-aoduvan-margin-bottom{
+		width:100%;
+	}
+	.checkbox-style{
+		font-size:12px;
+		font-family:"helvetica";
+	}
+	.label-9-style{
+		font-size:10px;
+	}
+	.btn-margin-bottom{
+		width:100%;
+	}
+	.h2-margin-bottom{
+		margin-bottom:-13px;
+		margin-top:45px;
+		font-size:30px;
+	}
+	.h2-контакты-margin-top{
+		margin-top:74px;
+		margin-bottom:-5px;
+		font-size:30px;
+	}
+	.img-kitchen-photo-margin-bottom{
+		margin-bottom:37px;
+	}
+	.p-margin-top{
+		margin-top:-17px;
+	}
+	.img-7-margin-bottom{
+		margin-bottom:10px;
+	}
+	.bloc-bloc-29-margin-top{
+		margin-top:58px;
+	}
+	.img-bloc-18-style{
+		width:200px;
+	}
+	.img-style{
+		width:200px;
+		height:79px;
+	}
+	.img-margin-top{
+		margin-top:0px;
+	}
+	.btn-padding{
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	.btn-bloc-29-padding{
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	.bloc-bloc-11-margin-top{
+		margin-bottom:0px;
+	}
+	.h3-3-margin-bottom{
+		margin-top:-50px;
+	}
+	.p-bloc-20-margin-top{
+		margin-top:-90px;
+	}
+	
+}
+
